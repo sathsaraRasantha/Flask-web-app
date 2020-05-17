@@ -36,47 +36,86 @@
    <body>
    <h1>Greetings</h1>
    <h6>Hello World!!</h6>
-   <div>
-   List of Websites:
-      <ul>
-          <li>Facebook : <a href="https://www.facebook.com/"> Facebook</a></li>
-          <li>Youtube : <a href="https://www.youtube.com/"> Youtube</a></li>
-          <li>Coursera :<a href="https://www.coursera.org/"> Coursera </a></li>
-      </ul>
-   </div>
-      <img src="E:\Learning Materials\Web - Stanford\New folder\image.jpg" height="200" width="300">
+   
+      
 
 
+                  
+          <form action="{{ url_for('main')}}" method="POST">
+            
+            <br>Date<br>
+            <input type="number" name="date"><br>
 
-                  <table>
-                      <tr>
-                          <th> Website</th>
-                          <th> Genre </th>
-                          <th> Preference</th>
-                      </tr>
-                      <tr>
-                          <td> Facebook</td>
-                          <td> Social Media</td>
-                          <td> First</td>
-                      </tr>
-                      <tr>
-                          <td> Youtube</td>
-                          <td> Entertainment</td>
-                          <td> Second</td>
-                      </tr>
-                      <tr>
-                          <td> Coursera</td>
-                          <td> Education</td>
-                          <td> Third</td>
-                      </tr>
-                      <tr>
-                        <td>Fiverr</td>
-                        <td>Commercial</td>
-                        <td>Fourth</td>
-                      </tr>
-                  </table>
-          <form>
-              <input type="text" placeholder="Your full name here" name="name">
-              <button> Submit </button>
+            <br>Number of Bedrooms<br>
+            <input type="number" name="bedrooms" class="form-control" required><br>
+
+            <br>Number of Bathrooms<br>
+            <input type="number" name="bathrooms" class="form-control" required><br>
+
+            <br>Size of the Living room ( sq ft)<br>
+            <input type="number" name="sqft_living" class="form-control" required><br>
+
+            <br>Size of the Lot ( sq ft)<br>
+            <input type="number" name="sqft_lot" class="form-control" required><br>
+
+
+            <br>Number of Floors<br>
+            <input type="number" name="floors" class="form-control" required><br>
+
+            <br>Waterfront<br>
+            <input type="number" name="waterfront" class="form-control" required><br>
+
+            <br>View<br>
+            <input type="number" name="view" class="form-control" required><br>
+
+            <br>Condition<br>
+            <input type="number" name="condition" class="form-control" required><br>
+
+            <br>Grade<br>
+            <input type="number" name="grade" class="form-control" required><br>
+
+            <br>Size of Upstairs( sq ft)<br>
+            <input type="number" name="sqft_above" class="form-control" required><br>
+
+            <br>Size of Basement<br>
+            <input type="number" name="sqft_basement" class="form-control" required><br>
+
+            <br>Built Year<br>
+            <input type="number" name="yr_built" class="form-control" required><br>
+
+            <br>Renovated Year<br>
+            <input type="number" name="yr_renovated" class="form-control" required><br>
+
+            <br>Zipcode<br>
+            <input type="number" name="zipcode" class="form-control" required><br>
+
+            <br>Latitude<br>
+            <input type="number" name="lat" class="form-control" required><br>
+
+            <br>Longitude<br>
+            <input type="number" name="long" class="form-control" required><br>
+
+            <br>sqft_living15<br>
+            <input type="number" name="sqft_living15" class="form-control" required><br>
+
+            <br>sqft_lot15<br>
+            <input type="number" name="sqft_lot15" class="form-control" required><br>
+
+
+           <input type="submit" value="Submit" class="btn btn-primary">
           </form>
+
+
+         <div class = "result" align="center">
+           {% if result %} {% for variable, value in original_input.items() %}
+           <b>{{ variable }}</b> : {{ value }} {% endfor %}
+
+           <br>
+           <br>
+           <h1> Prediction </h>
+            <p style="font-size:50px">${{ result }} </p>
+            {% endif %}
+
+         </div>
+           }
    </body>
